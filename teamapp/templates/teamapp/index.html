@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Team Project</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Equipos</a>
+                    <ul>
+                        <li><a href="{% url 'creaequipos' %}">Crear equipo</a></li>
+                    </ul>
+                
+                </li>
+                <li> <a href="#">Jugadores</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Listado de equipos</h2>
+        <ul>
+
+            {% for e in equipos %}
+                <li>
+                    <a href="#"> {{ e.nombre }} </a>
+                    <p>{{ e.obtener_logo }}</p>
+                </li>
+
+            {% endfor %}
+        </ul>
+
+        <h2>Listado de jugadores</h2>
+        <ul>
+
+            {% for j in jugadores %}
+                <li>{{ j.nombre }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+
+
+</body>
+</html>
